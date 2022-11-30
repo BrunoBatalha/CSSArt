@@ -1,0 +1,819 @@
+:root {
+    --background: #673923;
+    --container: #a75b38;
+    --pochita: #D97645;
+    --chainsaw: #C9C9C9;
+    --chainsaw-shadow: #0000002e;
+    --blade: #6E6E6E;
+    --blade-shadow: #5c5b5b;
+    --tongue: #B73F21;
+    --black: #151515;
+    --white: #fff;
+    --border-inner: #F89360;
+    --shadow: #B55143;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 20px;
+}
+
+body {
+    background-color: var(--background);
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 24em;
+    width: 24em;
+}
+
+.background-triangle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 0;
+    width: 0;
+    border-left: 12em solid transparent;
+    border-right: 12em solid transparent;
+    border-bottom: 24em solid var(--container);
+    animation: shake-background 2s infinite;
+}
+
+
+.pochita {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -75%);
+    background-color: var(--pochita);
+    width: 12em;
+    height: 12em;
+    border-radius: 50%;
+    border: 2px solid var(--black);
+    z-index: 10;
+}
+
+.pochita__chainsaw {
+    position: absolute;
+    top: -4em;
+    left: -1.5em;
+    height: 7.5em;
+    width: 5em;
+    background-color: var(--chainsaw);
+    box-sizing: border-box;
+    box-shadow: .05em -.05em var(--black),
+        -.05em -.05em var(--black);
+    border: .3em solid var(--blade);
+    transform: rotate(-40deg);
+    border-radius: 5em 5em 0em 0;
+    z-index: 20;
+    animation: shake-chainsaw .2s infinite;
+}
+
+
+.pochita__chainsaw::after {
+    content: '';
+    content: '';
+    position: absolute;
+    left: -0.3em;
+    top: 0.7em;
+    height: 7.1em;
+    width: 1em;
+    background-color: var(--chainsaw-shadow);
+    box-sizing: border-box;
+    border-radius: 8.1em 0em 0em 0;
+    transform: skew(1deg, 317deg);
+}
+
+
+.pochita__chainsaw-bend {
+    position: absolute;
+    bottom: 8.2em;
+    left: 0.6em;
+    height: 2em;
+    width: 4.6em;
+    background-color: var(--pochita);
+    border-radius: 100%;
+    z-index: 25;
+    transform: rotate(307deg);
+}
+
+.pochita__chainsaw-bend::after {
+    content: "";
+    position: absolute;
+    top: 0.4em;
+    left: 2.5em;
+    height: 1.6em;
+    width: 3.1em;
+    background: var(--pochita);
+    border-radius: 50%;
+    transform: rotate(24deg);
+}
+
+
+.pochita__eye {
+    position: absolute;
+    top: 2.5em;
+    left: 3.5em;
+    height: 4em;
+    width: 4em;
+    background-color: var(--white);
+    border-radius: 50%;
+    z-index: 40;
+    border: 2px solid var(--black);
+}
+
+.pochita__eye::after {
+    content: '';
+    position: absolute;
+    top: -1em;
+    height: 0.1em;
+    width: 105%;
+    background-color: var(--pochita);
+    border-radius: 40%;
+    left: -0.1em;
+    animation: blink-eye 5s ease-out infinite;
+}
+
+.pochita__eye::before {
+    content: '';
+    position: absolute;
+    height: 85%;
+    width: 85%;
+    background-color: var(--black);
+    border-radius: 50%;
+}
+
+.pochita__handler-container {
+    position: absolute;
+    top: -15%;
+    right: -14%;
+    height: 4em;
+    width: 6em;
+    transform: translateX(-40%) rotate(26deg);
+    animation: shake-handler .2s infinite .1s;
+}
+
+.pochita__handler-container::after {
+    content: '';
+    position: absolute;
+    top: 2.3em;
+    left: -0.65rem;
+    height: 4em;
+    width: 7em;
+    background-color: var(--pochita);
+    border-radius: 4em 2em 0 0;
+    transform: rotate(23deg);
+}
+
+.pochita__handler {
+    height: 100%;
+    width: 1.5em;
+    background-color: var(--black);
+    border-radius: 9.5em;
+}
+
+.pochita__handler-right {
+    position: absolute;
+    right: 0em;
+    z-index: 20;
+}
+
+.pochita__handler-left {
+    position: absolute;
+}
+
+.pochita__handler-top {
+    width: 100%;
+    height: 1.5em;
+    position: absolute;
+    right: 50%;
+    transform: translate(50%, -20%);
+}
+
+.pochita__paw-front-1 {
+    position: absolute;
+    bottom: 1.5em;
+    left: 3.5em;
+    width: 3em;
+    height: 3em;
+    border-radius: 100%;
+    border-top: 3px solid var(--border-inner);
+    border-right: 3px solid var(--border-inner);
+    transform: rotate(-30deg);
+    z-index: 10;
+}
+
+.pochita__paw-front-1::before {
+    content: '';
+    position: absolute;
+    left: -.8em;
+    top: 0em;
+    width: 1.2em;
+    height: 3em;
+    border-radius: 100% 100% 100% 100%;
+    border-top: 3px solid var(--border-inner);
+    border-right: 3px solid var(--border-inner);
+    transform: scaleX(-1) rotate(23deg);
+    box-shadow: inset -.2em .1em var(--shadow);
+}
+
+.pochita__paw-front-2 {
+    position: absolute;
+    top: 9.1em;
+    left: 7.5em;
+    width: 3em;
+    height: 3em;
+    border-radius: 100%;
+    border-top: 3px solid var(--border-inner);
+    transform: rotate(324deg);
+}
+
+.pochita__paw-front-2::before {
+    content: '';
+    position: absolute;
+    left: -.8em;
+    top: 0em;
+    width: 1.2em;
+    height: 3em;
+    border-radius: 100% 100% 100% 100%;
+    border-top: 3px solid var(--border-inner);
+    border-right: 3px solid var(--border-inner);
+    transform: scaleX(-1) rotate(23deg);
+    box-shadow: inset -.1em .0em var(--shadow);
+}
+
+.pochita__paw-front-2::after {
+    content: '';
+    position: absolute;
+    left: -1.09em;
+    top: -3em;
+    width: 6.45em;
+    height: 6.1em;
+    border-radius: 0em 0em 6em 0em;
+    transform: rotate(39deg);
+    background-color: #00000000;
+    box-shadow: 20px 19px 0 0px var(--container);
+    border-bottom: 2px solid var(--black);
+    border-right: 2px solid var(--black);
+    box-sizing: border-box;
+}
+
+.pochita__paw-behind-1 {
+    position: absolute;
+    top: 18.2em;
+    left: 6.2em;
+    width: 2.6em;
+    height: 1.1em;
+    background: var(--shadow);
+    border-radius: 50%;
+    border-left: 3px solid var(--black);
+    border-bottom: 3px solid var(--black);
+    transform: rotate(16deg);
+}
+
+.pochita__paw-behind-2 {
+    position: absolute;
+    top: 19.5em;
+    left: 11.1em;
+    width: 1em;
+    height: 2.2em;
+    background: var(--shadow);
+    border-radius: 50%;
+    border-left: 3px solid var(--black);
+    border-right: 3px solid var(--black);
+    border-bottom: 3px solid var(--black);
+    transform: rotate(28deg);
+    z-index: 5;
+}
+
+.pochita__tail {
+    position: absolute;
+    top: 16em;
+    left: 14.4em;
+    width: 4em;
+    height: 4em;
+    border-right: 4px solid var(--black);
+    border-radius: 5.8em 9em 4.9em 0;
+    z-index: 10;
+    transform: rotate(50deg);
+}
+
+.pochita__tail-tip {
+    position: absolute;
+    top: 16.7em;
+    left: 17.3em;
+    border-left: 1em solid transparent;
+    border-right: 1em solid transparent;
+    border-top: 1.5em solid var(--black);
+    z-index: 10;
+}
+
+.pochita__tail-tip::before {
+    content: '';
+    position: absolute;
+    top: -1.25em;
+    left: -0.5em;
+    border-left: 0.5em solid transparent;
+    border-right: 0.5em solid transparent;
+    border-top: 0.8em solid var(--container);
+}
+
+.pochita__tail-initial {
+    z-index: 10;
+    position: absolute;
+    top: 19.5em;
+    left: 15.6em;
+    height: 0.8em;
+    width: 1em;
+    background-color: var(--pochita);
+    border-radius: 0em 0em 3.6em 0.4em;
+    border: 2px solid var(--black);
+    border-left: 2px transparent;
+    border-right-width: 4px;
+    transform: rotate(51deg);
+    box-shadow: inset -0.1em -0.25em var(--shadow);
+}
+
+.pochita__muzzle-front {
+    position: absolute;
+    height: 0.8em;
+    width: 1.5em;
+    background-color: var(--pochita);
+    top: 4em;
+    left: 1.2em;
+    z-index: 30;
+    box-shadow: inset 0px -3px 0px var(--shadow);
+    border-bottom: 1px solid var(--border-inner);
+    border-left: 2px solid var(--border-inner);
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    transform: rotate(14deg);
+}
+
+.pochita__muzzle-behind {
+    position: absolute;
+    height: 1.2em;
+    width: 1.4em;
+    background-color: var(--shadow);
+    top: 3em;
+    left: -0.3em;
+    border-bottom: 2px solid var(--shadow);
+    border-right: 2px solid var(--border-inner);
+    border-left: 2px solid var(--black);
+    border-bottom: 2px solid var(--black);
+    border-bottom-left-radius: 2.3em;
+    border-bottom-right-radius: 1.9em;
+    border-top-right-radius: 1em;
+    z-index: 15;
+    transform: rotate(70deg);
+}
+
+.pochita__mouth {
+    position: absolute;
+    height: 1.6em;
+    width: 1.4em;
+    position: absolute;
+    height: 1.6em;
+    width: 1.4em;
+    background-color: var(--shadow);
+    top: 3.8em;
+    z-index: 10;
+    left: 0.4em;
+    border-bottom: 2px solid var(--shadow);
+    border-right: 4px solid var(--border-inner);
+    border-left: 2px solid var(--border-inner);
+    border-bottom: 2.3px solid var(--border-inner);
+    border-bottom-left-radius: 2.4em;
+    border-bottom-right-radius: 1.9em;
+    border-top-right-radius: 1em;
+    transform: rotate(9deg);
+    box-shadow: inset -0.4em -0.1em 0 var(--tongue);
+}
+
+.pochita__mouth::after {
+    content: '';
+    position: absolute;
+    height: 0.5em;
+    width: 1.1em;
+    background-color: var(--tongue);
+    top: 0.8em;
+    left: 0.3em;
+    border-radius: 50%;
+    transform: rotate(306deg);
+    border-top: 1.5px solid var(--border-inner);
+}
+
+
+.pochita__chainsaw-blade-1 {
+    position: absolute;
+    top: 5.2em;
+    left: -1.3em;
+    border-left: 1em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.8em solid var(--black);
+    transform: skew(1deg, 23deg);
+}
+
+.pochita__chainsaw-blade-1::after {
+    content: '';
+    position: absolute;
+    top: -0.71em;
+    left: -0.8em;
+    border-left: 0.9em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.6em solid var(--blade-shadow);
+}
+
+.pochita__chainsaw-blade-2 {
+    position: absolute;
+    top: 4.1em;
+    left: -1.5em;
+    border-left: 1.2em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.6em solid var(--black);
+    transform: skew(355deg, 23deg);
+}
+
+.pochita__chainsaw-blade-2::after {
+    content: '';
+    position: absolute;
+    top: -0.54em;
+    left: -0.9em;
+    border-left: 0.9em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.4em solid var(--blade-shadow);
+}
+
+.pochita__chainsaw-blade-3 {
+    position: absolute;
+    top: 2.9em;
+    left: -1.1em;
+    border-left: 0.8em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.5em solid var(--black);
+    transform: skewY(30deg);
+}
+
+.pochita__chainsaw-blade-3::after {
+    content: '';
+    position: absolute;
+    top: -0.44em;
+    left: -0.5em;
+    border-left: 0.6em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.3em solid var(--blade-shadow);
+}
+
+.pochita__chainsaw-blade-4 {
+    position: absolute;
+    top: 1.3em;
+    left: -1.1em;
+    border-left: 0.8em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.7em solid var(--black);
+    transform: skewY(31deg);
+}
+
+.pochita__chainsaw-blade-4::after {
+    content: '';
+    position: absolute;
+    top: -0.64em;
+    left: -0.6em;
+    border-left: 0.7em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.5em solid var(--blade-shadow);
+}
+
+.pochita__chainsaw-blade-5 {
+    position: absolute;
+    top: -0.3em;
+    left: -0.4em;
+    border-left: 1em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.7em solid var(--black);
+    transform: rotate(41deg) skewY(12deg);
+}
+
+.pochita__chainsaw-blade-5::after {
+    content: '';
+    position: absolute;
+    top: -0.62em;
+    left: -0.7em;
+    border-left: 0.8em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.5em solid var(--blade);
+}
+
+.pochita__chainsaw-blade-6 {
+    position: absolute;
+    top: -1.1em;
+    left: 1.1em;
+    border-left: 1em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.7em solid var(--black);
+    transform: rotate(72deg) skewY(12deg);
+}
+
+.pochita__chainsaw-blade-6::after {
+    content: '';
+    position: absolute;
+    top: -0.62em;
+    left: -0.7em;
+    border-left: 0.8em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.5em solid var(--blade);
+}
+
+.pochita__chainsaw-blade-7 {
+    position: absolute;
+    top: -0.85em;
+    left: 2.5em;
+    border-left: 0.7em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.5em solid var(--black);
+    transform: rotate(81deg) skew(350deg, 36deg);
+}
+
+.pochita__chainsaw-blade-7::after {
+    content: '';
+    position: absolute;
+    top: -0.42em;
+    left: -0.4em;
+    border-left: 0.4em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.4em solid var(--blade);
+}
+
+.pochita__chainsaw-blade-8 {
+    position: absolute;
+    top: -0.4em;
+    left: 3.7em;
+    border-left: 0.8em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.6em solid var(--black);
+    transform: rotate(108deg) skew(350deg, 36deg);
+}
+
+.pochita__chainsaw-blade-8::after {
+    content: '';
+    position: absolute;
+    top: -0.52em;
+    left: -0.4em;
+    border-left: 0.5em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.4em solid var(--blade);
+}
+
+.pochita__chainsaw-blade-9 {
+    position: absolute;
+    top: 0.8em;
+    left: 4.5em;
+    border-left: 0.5em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.6em solid var(--black);
+    transform: rotate(149deg) skew(350deg, 36deg);
+}
+
+.pochita__chainsaw-blade-9::after {
+    content: '';
+    position: absolute;
+    top: -0.52em;
+    left: -0.4em;
+    border-left: 0.5em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.4em solid var(--blade);
+}
+
+.pochita__chainsaw-blade-10 {
+    position: absolute;
+    top: 1.8em;
+    left: 4.7em;
+    border-left: 0.6em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.6em solid var(--black);
+    transform: rotate(157deg) skew(341deg, 22deg);
+}
+
+.pochita__chainsaw-blade-10::after {
+    content: '';
+    position: absolute;
+    top: -0.52em;
+    left: -0.4em;
+    border-left: 0.5em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.5em solid var(--blade);
+}
+
+.pochita__chainsaw-blade-11 {
+    position: absolute;
+    top: 3.1em;
+    left: 4.8em;
+    border-left: 0.8em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.6em solid var(--black);
+    transform: rotate(157deg) skew(341deg, 37deg);
+}
+
+.pochita__chainsaw-blade-11::after {
+    content: '';
+    position: absolute;
+    top: -0.52em;
+    left: -0.5em;
+    border-left: 0.6em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.5em solid var(--blade);
+}
+
+.pochita__chainsaw-blade-12 {
+    position: absolute;
+    top: 4.4em;
+    left: 4.85em;
+    border-left: 0.6em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.6em solid var(--black);
+    transform: rotate(157deg) skew(341deg, 50deg);
+
+}
+
+.pochita__chainsaw-blade-12::after {
+    content: '';
+    position: absolute;
+    top: -0.52em;
+    left: -0.4em;
+    border-left: 0.5em solid transparent;
+    border-right: 0em solid transparent;
+    border-top: 0.5em solid var(--blade);
+}
+
+.pochita__chainsaw-scratch-1 {
+    position: absolute;
+    top: 0.5em;
+    left: 2.4em;
+    height: 0.1em;
+    width: 0.7em;
+    border-radius: 100% 0 100% 0;
+    background-color: var(--chainsaw-shadow);
+    box-shadow: 0.1em 0.07em var(--chainsaw-shadow);
+    transform: rotate(155deg);
+}
+
+.pochita__chainsaw-scratch-2 {
+    position: absolute;
+    top: 1em;
+    left: 0.5em;
+    height: 0.1em;
+    width: 0.9em;
+    border-radius: 100% 0 100% 0;
+    background-color: var(--chainsaw-shadow);
+    box-shadow: 0.2em -0.11em var(--chainsaw-shadow);
+    transform: rotate(145deg);
+}
+
+.pochita__chainsaw-scratch-3 {
+    position: absolute;
+    top: 4.2em;
+    left: 0.5em;
+    height: 0.1em;
+    width: 0.7em;
+    border-radius: 100% 0 100% 0;
+    background-color: var(--chainsaw-shadow);
+    box-shadow: 0.1em 0.07em var(--chainsaw-shadow);
+    transform: rotate(145deg);
+}
+
+.pochita__chainsaw-scratch-4 {
+    position: absolute;
+    top: 4.7em;
+    left: 3.5em;
+    height: 0.1em;
+    width: 0.7em;
+    border-radius: 100% 0 100% 0;
+    background-color: var(--chainsaw-shadow);
+    box-shadow: 0.1em 0.07em var(--chainsaw-shadow), 0em 0.17em var(--chainsaw-shadow);
+    transform: rotate(117deg);
+}
+
+.pochita__chainsaw-scratch-5 {
+    position: absolute;
+    top: 3.2em;
+    left: 2.4em;
+    height: 0.1em;
+    width: 1em;
+    border-radius: 100% 0 100% 0;
+    background-color: var(--chainsaw-shadow);
+    box-shadow: 0.1em 0.1em var(--chainsaw-shadow);
+    transform: rotate(117deg);
+}
+
+.pochita__chainsaw-scratch-5::after {
+    content: '';
+    position: absolute;
+    top: 0em;
+    left: 0.1em;
+    height: 0.1em;
+    width: 1em;
+    background-color: var(--chainsaw-shadow);
+    transform: rotate(131deg);
+}
+
+.pochita__tummy-shadow {
+    position: absolute;
+    top: 11em;
+    left: 4em;
+    height: 1em;
+    width: 3em;
+    background-color: var(--shadow);
+    border-radius: 20% 100%;
+}
+
+.pochita__tummy-shadow::before {
+    content: '';
+    position: absolute;
+    top: -0.12em;
+    left: -1.2em;
+    height: 1em;
+    width: 3.4em;
+    background-color: var(--shadow);
+    border-radius: 20% 100%;
+    transform: rotate(6deg);
+}
+
+.pochita__tummy-shadow::after {
+    content: '';
+    position: absolute;
+    top: -1.1em;
+    left: -2.9em;
+    height: 1.1em;
+    width: 3.2em;
+    background-color: var(--shadow);
+    border-radius: 20% 100%;
+    transform: rotate(27deg);
+}
+
+.pochita__shadow {
+    position: absolute;
+    top: 22.1em;
+    left: 7.6em;
+    background-color: var(--black);
+    height: 1em;
+    width: 7em;
+    border-radius: 50%;
+    filter: opacity(0.5);
+    animation: shake-bottom-shadow-pochita 2s infinite;
+}
+
+@keyframes shake-bottom-shadow-pochita {
+    50% {
+        transform: scale(.95);
+    }
+}
+
+@keyframes shake-pochita {
+    50% {
+        transform: translate(5px, 5px);
+    }
+}
+
+@keyframes shake-chainsaw {
+    50% {
+        transform: rotate(-40deg) translateX(-2px);
+    }
+}
+
+@keyframes shake-handler {
+    50% {
+        transform: translate(-42%, .1em) rotate(26deg);
+    }
+}
+
+@keyframes shake-background {
+    50% {
+        transform: translate(-50%, -51%);
+    }
+
+}
+
+@keyframes blink-eye {
+    80% {
+        top: -1em;
+        height: .1em;
+        width: 105%;
+    }
+
+    90% {
+        position: absolute;
+        top: -0.2em;
+        height: 110%;
+        width: 105%;
+    }
+}
