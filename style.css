@@ -1,0 +1,106 @@
+:root {
+    --background: #003049;
+    --text: #fcbf49;
+    --text-background: #d62828
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Koulen', cursive;
+    font-size: larger;
+    overflow: hidden;
+    margin-top: 12rem;
+    position: relative
+}
+
+li {
+    list-style: none;
+    text-align: center;
+}
+
+ul {
+    padding: 0;
+    transform: translate(0, 25%);
+}
+
+a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text);
+    position: relative;
+    transition: color 1s;
+    padding: 1rem;
+    display: inline-block;
+}
+
+a:hover {
+    color: var(--background);
+    animation: shake-letters .2s forwards;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    transform: translate(1000%, 0);
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    transition: transform .2s;
+}
+
+a:hover::after {
+    background-color: #ffba08;
+    transform: translate(-50%, 0);
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    transform: translate(-1000%, 0);
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    transition: transform .2s;
+}
+
+a:hover::before {
+    transform: translate(-50%, 0);
+    background-color: #ffba08;
+}
+
+a~div {
+    position: absolute;
+    top: 1000%;
+    left: 50%;
+    color: var(--text-background);
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    font-size: 10rem;
+    transform: translate(-50%, 0);
+    z-index: -1;
+    filter: opacity(0.5);
+    transition: filter 1s, top .5s;
+}
+
+a:hover~div {
+    top: -100%;
+    filter: opacity(.2);
+}
+
+@keyframes shake-letters {
+    90% {
+        margin-left: 1rem;
+    }
+
+    95% {
+        margin-left: -1rem;
+    }
+
+    100% {
+        margin-left: 0px;
+    }
+}
