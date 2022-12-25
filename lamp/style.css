@@ -3,11 +3,19 @@
     --bottom-lamp: #264653;
     --lamp: #e9c46a;
     --border-bottom: #fefae0;
+    --lamp-off: #4b5c9c;
+    --background-dark: #09121a;
+    --circle-rope: #e3b445;
+    --rope: #45403a;
 }
 
 body {
     margin: 0;
     padding: 0;
+}
+
+.background {
+    height: 100vh;
     background-color: var(--background);
 }
 
@@ -20,6 +28,7 @@ body {
     width: 14em;
     background-color: var(--lamp);
     border-radius: 50%;
+    transition: background-color .2s;
 }
 
 .lamp-reflection {
@@ -45,6 +54,7 @@ body {
     height: 8em;
     width: 8em;
     background-color: var(--lamp);
+    transition: background-color .2s;
 }
 
 
@@ -94,4 +104,75 @@ body {
     transform: translate(50%);
     right: 50%;
     /* box-shadow: inset 0 .1em 0 #0b161a; */
+}
+
+.rope {
+    position: absolute;
+    top: -5em;
+    width: .5em;
+    height: 100%;
+    background-color: var(--rope);
+}
+
+.rope-container {
+    position: absolute;
+    top: -5em;
+    right: 5%;
+    width: .5em;
+    height: 70%;
+    padding: 3em;
+    position: absolute;
+    transition: transform .2s, height .2s;
+}
+
+.rope-container:hover {
+    transform: translate(0, 5%);
+}
+
+.rope-container:hover~.lamp {
+    animation: shake-lamp 1s forwards;
+}
+
+.rope-container:hover~.lamp,
+.rope-container:hover~.lamp .lamp-body {
+    background-color: var(--lamp-off);
+}
+
+.rope-container:hover~.background {
+    background-color: var(--background-dark);
+    transition: background-color .2s;
+}
+
+.rope-container:hover~.lamp .lamp-body-bend-left {
+    background-color: var(--background-dark);
+    transition: background-color .2s;
+}
+
+.rope-container:hover~.lamp .lamp-body-bend-right {
+    background-color: var(--background-dark);
+    transition: background-color .2s;
+}
+
+.rope::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background-color: var(--circle-rope);
+    transform: translate(-50%, 0);
+}
+
+@keyframes shake-lamp {
+    50% {
+        transform: translate(50%, -55%);
+    }
+}
+
+@media (max-width:400px) {
+    .rope-container {
+        height: 12em;
+    }
 }
