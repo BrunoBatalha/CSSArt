@@ -1,0 +1,664 @@
+:root {
+    --background: #a7cfe8;
+    --lampshade-fill: #9db6c9;
+    --lampshade-border: #386490;
+    --lamp: #fcfdfe;
+    --light: #e8e790;
+    --road-stripe: #edcd58;
+    --road: #4f626e;
+    --circle-container: #63b7ec;
+    --cloud: #4dace8;
+    --fence: #ba9561;
+}
+
+body {
+    background-color: var(--background);
+    overflow: hidden;
+}
+
+.container {
+    background-color: var(--circle-container);
+    position: absolute;
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+    z-index: 100;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container-cars {
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    height: 1.3rem;
+}
+
+.car {
+    height: 1rem;
+    border-radius: 0 5rem 0.2rem 0.2rem;
+}
+
+.car__shape {
+    position: absolute;
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+    border-radius: 0.25rem;
+}
+
+.car__shape-front {
+    position: absolute;
+    width: 1rem;
+    height: 0.6rem;
+    top: -0.15rem;
+    right: -0.4rem;
+    border-radius: 0 50%;
+    background: transparent;
+    position: absolute;
+    border-radius: 0 50% 0 55%;
+    overflow: hidden;
+}
+
+.car__window-front {
+    position: absolute;
+    width: 1rem;
+    height: 0.6rem;
+    top: -0.15rem;
+    right: -0.4rem;
+    border-radius: 0 50% 0 55%;
+    background-color: #234e69;
+    filter: opacity(0.5);
+}
+
+.car__wheel {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.car-1 {
+    position: absolute;
+    top: -0.6rem;
+    width: 2rem;
+    left: -2rem;
+    animation: car-1 15s linear 0s infinite;
+}
+
+.car__shape-front-1 {
+    box-shadow: 0px 0px 0px 500px #acaffc;
+}
+
+.car__wheel-1 {
+    left: 0.3rem;
+    height: 0.45rem;
+    width: 0.45rem;
+    bottom: 0;
+    background-color: #6669b0;
+    box-shadow: 1rem 0 0 0 #6669b0;
+}
+
+.car-2 {
+    position: absolute;
+    bottom: 0rem;
+    right: 0rem;
+    width: 1.5rem;
+    animation: car-2 10s linear 0s infinite;
+}
+
+.car__shape-front-2 {
+    box-shadow: 0px 0px 0px 500px #fff;
+}
+
+.car__wheel-2 {
+    left: 0.2rem;
+    height: 0.35rem;
+    width: 0.35rem;
+    bottom: 0.1rem;
+    background-color: #6669b0;
+    box-shadow: 0.8rem 0 0 0 #6669b0;
+}
+
+.fence {
+    position: absolute;
+    bottom: 1.025rem;
+    left: 4rem;
+    height: 0.5rem;
+    width: 15rem;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.fence-horizontal {
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    width: 100%;
+    height: 0.1rem;
+    background-color: var(--fence);
+}
+
+.fence-vertical {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 0.2rem;
+    border-radius: 1rem 1rem 0 0;
+    background-color: var(--fence);
+    box-shadow: calc(1 * 0.6rem) 0 0 0 var(--fence),
+        calc(2 * 0.6rem) 0 0 0 var(--fence), calc(3 * 0.6rem) 0 0 0 var(--fence),
+        calc(4 * 0.6rem) 0 0 0 var(--fence), calc(5 * 0.6rem) 0 0 0 var(--fence),
+        calc(6 * 0.6rem) 0 0 0 var(--fence), calc(7 * 0.6rem) 0 0 0 var(--fence),
+        calc(8 * 0.6rem) 0 0 0 var(--fence), calc(9 * 0.6rem) 0 0 0 var(--fence),
+        calc(10 * 0.6rem) 0 0 0 var(--fence), calc(11 * 0.6rem) 0 0 0 var(--fence),
+        calc(12 * 0.6rem) 0 0 0 var(--fence), calc(13 * 0.6rem) 0 0 0 var(--fence),
+        calc(14 * 0.6rem) 0 0 0 var(--fence), calc(15 * 0.6rem) 0 0 0 var(--fence),
+        calc(16 * 0.6rem) 0 0 0 var(--fence), calc(17 * 0.6rem) 0 0 0 var(--fence),
+        calc(18 * 0.6rem) 0 0 0 var(--fence);
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    background-color: #4f7fd6;
+    bottom: 0;
+    height: 1rem;
+    width: 100%;
+}
+
+.airplane {
+    position: absolute;
+    top: 6rem;
+    left: 20rem;
+    width: 2rem;
+    height: 0.6rem;
+    background-color: #fff;
+    display: block;
+    border-radius: 2rem;
+    z-index: -1;
+    animation: airplane 6s ease-in-out 4s infinite;
+}
+
+.airplane::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.5rem;
+    height: 0.4rem;
+    background-color: #9db6c999;
+    border-radius: 0.2rem 0 0 0;
+}
+
+.airplane::before {
+    content: "";
+    position: absolute;
+    top: 0.16rem;
+    left: 0.6rem;
+    width: 0.25rem;
+    height: 0.25rem;
+    background-color: #9db6c999;
+    z-index: 100;
+    box-shadow: 0.35rem 0 0 0 #9db6c999, 0.7rem 0 0 0 #9db6c999;
+    border-radius: 25%;
+}
+
+.airplane__tail {
+    position: absolute;
+    top: -0.25rem;
+    right: 0rem;
+    width: 0.4rem;
+    height: 0.6rem;
+    background-color: #fff;
+    display: block;
+    border-radius: 0.6rem 0.2rem 0 0;
+}
+
+.airplane__wing-1 {
+    position: absolute;
+    bottom: -0.5rem;
+    right: 0.75rem;
+    width: 0.45rem;
+    height: 1rem;
+    background-color: #fff;
+    display: block;
+    border-radius: 0 0 0.5rem 1rem;
+    transform: rotate(-10deg);
+}
+
+.airplane__wing-2 {
+    position: absolute;
+    top: -0.4rem;
+    right: 0.75rem;
+    width: 0.45rem;
+    height: 0.9rem;
+    background-color: #fff;
+    border-radius: 1rem 0.5rem 0 0;
+    transform: rotate(10deg);
+}
+
+.airplane__wing-2::before {
+    content: "";
+    position: absolute;
+    bottom: 0.55rem;
+    right: 0.03rem;
+    width: 0.5rem;
+    height: 0.01rem;
+    background-color: #9db6c9cc;
+    transform: rotate(-10deg);
+}
+
+.container-buildings {
+    position: absolute;
+    height: 5rem;
+    width: 20rem;
+    bottom: 0;
+}
+
+.building {
+    position: absolute;
+    height: 2rem;
+    width: 1rem;
+    border-radius: 0.2rem 0.2rem 0 0;
+    bottom: 2.1rem;
+    z-index: -1;
+}
+
+.building::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.2rem;
+    height: 0.5rem;
+    background-color: #23394a;
+    filter: opacity(0.5);
+}
+
+.building::before {
+    content: "";
+    position: absolute;
+    width: 0.2rem;
+    height: 0.2rem;
+    margin-left: -0.2rem;
+    filter: opacity(0.7);
+    background-color: transparent;
+}
+
+.building-1 {
+    background-color: #3377a1;
+    left: 4rem;
+}
+
+.building-1::before {
+    box-shadow: 0.4rem 0.2rem 0 0 #23394a99, 0.8rem 0.2rem 0 0 #23394a99,
+        0.4rem 0.6rem 0 0 #23394a99, 0.8rem 0.6rem 0 0 #23394a99,
+        0.4rem 1rem 0 0 #23394a99, 0.8rem 1rem 0 0 #23394a99;
+}
+
+.building-2 {
+    background-color: #ed7b7c;
+    left: 5rem;
+    height: 1.5rem;
+}
+
+.building-2::before {
+    box-shadow: 0.4rem 0.2rem 0 0 #23394a99, 0.8rem 0.2rem 0 0 #23394a99,
+        0.4rem 0.6rem 0 0 #23394a99, 0.8rem 0.6rem 0 0 #23394a99;
+}
+
+.building-3 {
+    background-color: #edeb4c;
+    left: 6.8rem;
+    height: 1.4rem;
+}
+
+.building-3::before {
+    box-shadow: 0.4rem 0.2rem 0 0 #23394a99, 0.4rem 0.6rem 0 0 #23394a99;
+}
+
+.building-4 {
+    background-color: #5b69f7;
+    left: 7.5rem;
+    height: 2.5rem;
+}
+
+.building-4::before {
+    box-shadow: 0.4rem 0.2rem 0 0 #23394a99;
+}
+
+.building-5 {
+    background-color: #ed9c7b;
+    left: 12rem;
+    height: 1.7rem;
+}
+
+.building-5::before {
+    box-shadow: 0.4rem 0.2rem 0 0 #23394a99, 0.8rem 0.2rem 0 0 #23394a99,
+        0.4rem 0.6rem 0 0 #23394a99, 0.8rem 0.6rem 0 0 #23394a99;
+}
+
+.building-6 {
+    background-color: #ba603c;
+    left: 13.2rem;
+    height: 1rem;
+}
+
+.building-6::before {
+    box-shadow: 0.4rem 0.2rem 0 0 #23394a99, 0.8rem 0.2rem 0 0 #23394a99;
+}
+
+.building-7 {
+    background-color: #6f7187;
+    left: 14.5rem;
+    height: 1rem;
+    width: 3rem;
+}
+
+.building-7::before {
+    box-shadow: 0.4rem 0.3rem 0 0 #23394a99, 0.8rem 0.3rem 0 0 #23394a99,
+        1.2rem 0.3rem 0 0 #23394a99, 2rem 0.3rem 0 0 #23394a99,
+        2.4rem 0.3rem 0 0 #23394a99;
+}
+
+.road {
+    position: absolute;
+    bottom: 0.8rem;
+    width: 100%;
+    height: 1.5rem;
+    background-color: var(--road);
+}
+
+.road::after {
+    content: "";
+    position: absolute;
+    top: 0.6rem;
+    left: 4.5rem;
+    height: 0.12rem;
+    background-color: var(--road-stripe);
+    width: 1.7rem;
+    box-shadow: 3.5rem 0 0 0 var(--road-stripe), 6.5rem 0 0 0 var(--road-stripe),
+        9.5rem 0 0 0 var(--road-stripe);
+}
+
+.container-clouds {
+    position: absolute;
+    z-index: -1;
+}
+
+.cloud {
+    position: absolute;
+    background: var(--cloud);
+    height: 3rem;
+    width: 7rem;
+    border-radius: 7rem;
+}
+
+.cloud-1 {
+    left: 9rem;
+    top: 3rem;
+    animation: cloud 4s ease-in-out 0s infinite alternate;
+}
+
+.cloud-2 {
+    left: 6rem;
+    top: 5.5rem;
+    animation: cloud 8s ease-in-out 0s infinite alternate-reverse;
+}
+
+.cloud-3 {
+    left: 8rem;
+    top: 8rem;
+    width: 11rem;
+    animation: cloud 6s ease-in-out 0s infinite alternate;
+}
+
+.cloud-4 {
+    left: 2rem;
+    top: 12rem;
+    animation: cloud 9s ease-in-out 0s infinite alternate-reverse;
+}
+
+.cloud-5 {
+    left: 6rem;
+    top: 14rem;
+    width: 9rem;
+    animation: cloud 5s ease-in-out 0s infinite alternate;
+}
+
+.lampshade {
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.lampshade__base {
+    position: absolute;
+    top: 5rem;
+    width: 5rem;
+    height: 2.5rem;
+    border-radius: 2.8rem 2.8rem 0 0;
+    background-color: var(--lampshade-fill);
+    border: 0.2rem solid var(--lampshade-border);
+    border-bottom: 0;
+}
+
+.lampshade__body-middle {
+    position: absolute;
+    top: -0.5rem;
+    left: 0rem;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    box-shadow: 0rem 0rem 0rem 0.2rem var(--lampshade-fill),
+        0rem 0rem 0rem 0.4rem var(--lampshade-border);
+    background-color: var(--lampshade-fill);
+    border: 0.2rem solid var(--lampshade-border);
+    z-index: 100;
+    animation: body-middle 4s ease-in-out 0s infinite alternate;
+}
+
+.lampshade__body-bottom {
+    position: absolute;
+    z-index: -10;
+    top: 0.1rem;
+    left: 1.25rem;
+    height: 5rem;
+    width: 0.15rem;
+    background-color: var(--lampshade-fill);
+    border: 0.2rem solid var(--lampshade-border);
+    transform: rotate(-20deg);
+    animation: body-bottom 4s ease-in-out 0s infinite alternate;
+}
+
+.lampshade__body-top {
+    position: absolute;
+    top: -5.75rem;
+    left: 1.5rem;
+    height: 5rem;
+    width: 0.15rem;
+    background-color: var(--lampshade-fill);
+    border: 0.2rem solid var(--lampshade-border);
+    transform: rotate(20deg);
+    animation: body-top 4s ease-in-out 0s infinite alternate;
+}
+
+.lampshade__head {
+    position: absolute;
+    z-index: 10;
+    top: -8.5rem;
+    left: 1rem;
+    height: 2.5rem;
+    width: 0;
+    border-bottom: 0.5rem solid transparent;
+    border-right: 4rem solid var(--lampshade-border);
+    border-top: 0.5rem solid transparent;
+    animation: head 4s ease-in-out 0s infinite alternate;
+    transform: rotate(0deg);
+}
+
+.lampshade__head::after {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    top: -0.2rem;
+    left: 0.25rem;
+    height: 2rem;
+    width: 0;
+    border-bottom: 0.4rem solid transparent;
+    border-right: 3.5rem solid var(--lampshade-fill);
+    border-top: 0.4rem solid transparent;
+}
+
+.lampshade__head-lamp {
+    position: absolute;
+    top: 0.4rem;
+    left: 3.8rem;
+    width: 0.25rem;
+    height: 1.25rem;
+    border-radius: 0 1rem 1rem 0;
+    background-color: var(--lamp);
+    border: 0.2rem solid var(--lampshade-border);
+}
+
+.lampshade__head-back {
+    position: absolute;
+    top: 0.3rem;
+    left: -0.3rem;
+    width: 0.15rem;
+    height: 1.5rem;
+    background-color: var(--lampshade-fill);
+    border: 0.2rem solid var(--lampshade-border);
+}
+
+.lampshade__head-back::before {
+    content: "";
+    position: absolute;
+    top: 0.2rem;
+    left: -0.5rem;
+    width: 0.1rem;
+    height: 0.75rem;
+    border-radius: 1rem 0 0 1rem;
+    background-color: var(--lampshade-fill);
+    border: 0.2rem solid var(--lampshade-border);
+}
+
+.lampshade__head-light {
+    position: absolute;
+    top: -4.5rem;
+    left: 0rem;
+    height: 2.5rem;
+    transform: translate(0, 0%);
+    width: 0;
+    border-bottom: 4rem solid transparent;
+    border-right: 20rem solid var(--light);
+    border-top: 4rem solid transparent;
+    filter: opacity(0.2);
+    animation: head-light 4s ease-in-out infinite alternate;
+}
+
+@keyframes body-bottom {
+    to {
+        transform: translate(-0.5rem, 1rem) rotate(-40deg);
+    }
+}
+
+@keyframes body-middle {
+    to {
+        transform: translate(-1.5rem, 0.8rem) rotate(-40deg);
+    }
+}
+
+@keyframes body-top {
+    to {
+        transform: translate(-1rem, 1rem) rotate(30deg);
+    }
+}
+
+@keyframes head {
+    65% {
+        transform: translate(0rem, 1rem) rotate(50deg);
+    }
+
+    80% {
+        transform: translate(-0.5rem, 1.5rem) rotate(20deg);
+    }
+
+    100% {
+        transform: translate(-0.5rem, 1.5rem) rotate(10deg);
+    }
+}
+
+@keyframes head-light {
+    50% {
+        filter: opacity(0.5);
+    }
+
+    55% {
+        filter: opacity(0.7);
+    }
+
+    60% {
+        filter: opacity(0.5);
+    }
+}
+
+@keyframes cloud {
+    50% {
+        transform: translateX(-20%);
+    }
+
+    100% {
+        transform: translateX(10%);
+    }
+}
+
+@keyframes airplane {
+    50% {
+        transform: translateX(-180%);
+    }
+
+    100% {
+        transform: translateX(-2000%);
+    }
+}
+
+@keyframes car-1 {
+    to {
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes car-2 {
+    0% {
+        transform: scaleX(-1) translateX(0vw);
+    }
+
+    50% {
+        transform: scaleX(-1) translateX(50vw);
+    }
+
+    100% {
+        transform: scaleX(-1) translateX(100vw);
+    }
+}
+
+html {
+    font-size: 30px;
+}
+
+@media (max-width: 610px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 330px) {
+    html {
+        font-size: 10px;
+    }
+}
