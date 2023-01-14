@@ -41,7 +41,7 @@
             $element.style.transform = 'translate(-50%,-50%)';
 
             document.body.appendChild($element);
-            $element.animate([
+            const animation = $element.animate([
                 {
                     width: '0px',
                     height: '0px',
@@ -55,6 +55,10 @@
             ], {
                 duration: 500
             });
+
+            animation.onfinish = () => {
+                document.body.removeChild($element);
+            }
         }
 
         function animeHeadToCursor(event) {
