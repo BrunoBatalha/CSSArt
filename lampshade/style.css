@@ -498,7 +498,6 @@ body {
     border-right: 4rem solid var(--lampshade-border);
     border-top: 0.5rem solid transparent;
     animation: head 4s ease-in-out 0s infinite alternate;
-    transform: rotate(0deg);
 }
 
 .lampshade__head::after {
@@ -562,24 +561,40 @@ body {
 }
 
 @keyframes body-bottom {
-    to {
+    30% {
+        transform: translate(0rem, 0rem) rotate(-20deg);
+    }
+
+    100% {
         transform: translate(-0.5rem, 1rem) rotate(-40deg);
     }
 }
 
 @keyframes body-middle {
-    to {
+    30% {
+        transform: translate(0rem, 0rem) rotate(0deg);
+    }
+
+    100% {
         transform: translate(-1.5rem, 0.8rem) rotate(-40deg);
     }
 }
 
 @keyframes body-top {
-    to {
+    30% {
+        transform: translate(0rem, 0rem) rotate(20deg);
+    }
+
+    100% {
         transform: translate(-1rem, 1rem) rotate(30deg);
     }
 }
 
 @keyframes head {
+    30% {
+        transform: translate(0rem, 0rem) rotate(0deg);
+    }
+
     65% {
         transform: translate(0rem, 1rem) rotate(50deg);
     }
